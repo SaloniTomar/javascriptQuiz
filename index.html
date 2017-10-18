@@ -6,13 +6,15 @@
     </head>
     <body onload=setContent()>
         <h3>Quiz</h3>
-        
-        <p id="ques"></p>
-        
+        <div  id="content" style="display: block">
+            <p id="ques"></p>
             <button><a id="option1" onclick=saveAnswer("1")></a></button><br>
             <button><a id="option2" onclick=saveAnswer("2")></a></button><br>
             <button><a id="option3" onclick=saveAnswer("3")></a></button><br>
             <button><a id="option4" onclick=saveAnswer("4")></a></button>
+        </div>
+        <div id="result"></div>
+            
   <script src="javascript.js"></script>
     </body>
 </html>
