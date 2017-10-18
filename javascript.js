@@ -6,12 +6,17 @@ var index=-1, score=0;
 
 function submitUsername(){
     var name= document.getElementById("name").value;
-    localStorage.setItem("name", name);
-    document.getElementById("userData").style.display="none";
-    document.getElementById("content").style.display="block";
-    setContent();
+    if(name==="")
+        {
+            alert("Please enter your name");
+        }
+    else{
+        localStorage.setItem("name", name);
+        document.getElementById("userData").style.display="none";
+        document.getElementById("content").style.display="block";
+        setContent();
+    }
 }
-
 function storeAnswer(ans){
     //alert(ans);
     document.getElementById(ans).style.backgroundColor="steelblue";
