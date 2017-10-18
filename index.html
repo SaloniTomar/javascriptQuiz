@@ -1,18 +1,29 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <title>Javascript Quiz</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body onload=setContent()>
+    <body>
         <h3>Quiz</h3>
         <hr>
-        <div  id="content" style="display: block">
+        <div id="userData" style="display: block">
+            <p>Enter your name</p>
+            <form>
+                <input id="name" type="text" required/>
+            </form>
+            
+            <button id="submit1" onclick=submitUsername() style="display: block">Submit</button>
+        </div>
+        <div  id="content" style="display: none">
+            <a id="username"></a>
             <p id="ques"></p>
-            <button><a id="option1" onclick=saveAnswer("1")></a></button><br>
-            <button><a id="option2" onclick=saveAnswer("2")></a></button><br>
-            <button><a id="option3" onclick=saveAnswer("3")></a></button><br>
-            <button><a id="option4" onclick=saveAnswer("4")></a></button>
+            <button id="1" onclick=storeAnswer("1")><a id="option1"></a></button><br>
+            <button id="2" onclick=storeAnswer("2")><a id="option2"></a></button><br>
+            <button id="3" onclick=storeAnswer("3")><a id="option3"></a></button><br>
+            <button id="4" onclick=storeAnswer("4")><a id="option4"></a></button>
+            <button id="next" onclick=setContent() style="display: block">Next</button>
+            <button id="submit2" onclick=showResult() style="display: none">Submit</button>
         </div>
         <div id="result"></div>
             
