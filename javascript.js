@@ -4,44 +4,78 @@ localStorage.setItem("options", "javascript,scripting,script,js;In the body,Head
 localStorage.setItem("correct", "3,3,2,2,3");
 var index=-1, score=0;
 
-function setContent(){
-    index++;
-    var arr=[localStorage.getItem("ques").split(",")[index],localStorage.getItem("options").split(";")[index].split(",")[0],localStorage.getItem("options").split(";")[index].split(",")[1],localStorage.getItem("options").split(";")[index].split(",")[2],localStorage.getItem("options").split(";")[index].split(",")[3]];
-    document.getElementById("ques").innerHTML=arr[0];
-    document.getElementById("option1").innerHTML=arr[1];
-    document.getElementById("option2").innerHTML=arr[2];
-    document.getElementById("option3").innerHTML=arr[3];
-    document.getElementById("option4").innerHTML=arr[4];
-  
-    
+function submitUsername(){
+    var name= document.getElementById("name").value;
+    localStorage.setItem("name", name);
+    document.getElementById("userData").style.display="none";
+    document.getElementById("content").style.display="block";
+    setContent();
 }
-function saveAnswer(ans){
-   // alert(ans);
-    var correctAns=localStorage.getItem("correct").split(",")[index];
-   // alert(correctAns);
-    if(ans==correctAns)
-        {
-            score++;
-            alert("Right ans");
-            //alert(score);
-             var addedScore = localStorage.getItem('score');
-    if (addedScore) {
-        localStorage.setItem('score', addedScore + ',' + index);
-    } else {
-        localStorage.setItem('score', index+1);
+
+function storeAnswer(ans){
+    //alert(ans);
+    document.getElementById(ans).style.backgroundColor="steelblue";
+    for(var x=1; x<=4;x++){
+        if(x==ans);
+        else{
+            document.getElementById(x).style.backgroundColor="darkgray";
+        }
     }
+    var selectedOption = localStorage.getItem('selectedOption');
+    if (selectedOption) {
+            localStorage.removeItem('selectedOption');
         }
-    else{ alert("Wrong ans");}
-    if(index<4)
+    localStorage.setItem("selectedOption",ans);
+}
+
+function setContent(){
+    if(index!=(-1)){
+        var answer=localStorage.getItem("selectedOption");
+        checkAnswer(answer);
+        for(var x=1; x<=4;x++){
+            document.getElementById(x).style.backgroundColor="darkgray";
+        }
+    }
+    index++;
+    var arr=[localStorage.getItem("name"), localStorage.getItem("ques").split(",")[index],localStorage.getItem("options").split(";")[index].split(",")[0],localStorage.getItem("options").split(";")[index].split(",")[1],localStorage.getItem("options").split(";")[index].split(",")[2],localStorage.getItem("options").split(";")[index].split(",")[3]];
+    document.getElementById("username").innerHTML="Welcome "+arr[0];
+    document.getElementById("ques").innerHTML=arr[1];
+    document.getElementById("option1").innerHTML=arr[2];
+    document.getElementById("option2").innerHTML=arr[3];
+    document.getElementById("option3").innerHTML=arr[4];
+    document.getElementById("option4").innerHTML=arr[5];
+     if(index>=4)
         {
-             setContent();
+            document.getElementById("next").style.display="none";
+            document.getElementById("submit2").style.display="block";
+        }     
+}
+function checkAnswer(ans){
+    var correctAns=localStorage.getItem("correct").split(",")[index];
+    if(ans==correctAns){
+        score++;
+        var addedScore = localStorage.getItem('score');
+        if (addedScore) {
+            localStorage.setItem('score', addedScore + ',' + index);
         }
-    else
-        showResult();
+        else {
+            localStorage.setItem('score', index);
+        }
+       // alert("Correct ans");
+    }
+    else{ 
+       // alert("Wrong ans");
+    }
 }
 function showResult(){
-    var result=localStorage.score.split(",").length;
+     var answer=localStorage.getItem("selectedOption");
+    checkAnswer(answer);  
+    var name= document.getElementById("name").value;
     document.getElementById("content").style.display="none";
-    document.getElementById("result").innerHTML="<a style='font-size:50px'>Your score is "+score+"</a>";
-   // alert("Your score is "+result);
+    var score = localStorage.getItem("score"), finalScore=0;
+    if(score){
+        finalScore= score.split(",").length;
+    }
+    document.getElementById("result").innerHTML="<a style='font-size:50px'>"+name+", Your score is "+finalScore+" out of 5</a>";
 }
+
