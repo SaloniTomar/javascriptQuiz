@@ -1,20 +1,76 @@
-button{
-    color: black;
-    width: 400px;
-    height: auto;
-    font-size: 30px;
-    margin: 10px;
-}
-p{
-    margin: 50px;
-    padding: 20px;
-    font-size: 20px;
-}
-h3{
-    font-size: 50px;
-}
 body{
-    font-family: cursive;
-    border: solid;
+    background-color: aliceblue;
+}
+
+.grid{
+    width: auto;
+    height: auto;
+    margin: 20px;
+    background-color: ghostwhite;
+    padding: 10px 50px 70px 50px;
+    border-radius: 50px;
+    border: 2px solid black;
+}
+#username{
+    font-family: sans-serif;
+    font-size: 20px;
+    position: fixed;
+    right: 70px;
+    top: 25px;
+}
+h1{
+    font-family: sans-serif;
+    background-color: gainsboro;
+    font-size: 60px;
     text-align: center;
+    color: steelblue;
+    padding: 2px 0px;
+    border-radius:50px;
+}
+#ques, #userData{
+    font-family: sans-serif;
+    font-size: 30px;
+    color: steelblue;
+}
+#content{
+    margin-top: 30px;
+}
+.grid #submit1, #next,#submit2{
+    position: absolute;
+    right: 0px;
+    bottom: auto;
+    background-color: ivory;
+    width: auto;
+    font-size: 20px;
+    color: steelblue;
+    border-radius: 50px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px 10px 10px;
+}
+#submit1:focus, #submit2:focus, #next:focus{
+    outline: 0;
+}
+#submit1:hover, #submit2:hover, #next:hover{
+    cursor: pointer;
+    
+}
+#btn1, #btn2, #btn3, #btn4{
+    background-color: ivory;
+    width: 250px;
+    font-size: 20px;
+    color: steelblue;
+    border-radius: 50px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+}
+
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover{
+    cursor: pointer;
+    background-color: slategrey;
+    color: white;
+}
+#btn1:focus, #btn2:focus, #btn3:focus, #btn4:focus{
+    background-color: slategray;
+    outline: 0;
+    color: white;
 }
