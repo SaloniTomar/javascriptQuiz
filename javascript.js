@@ -7,7 +7,7 @@ localStorage.setItem("correct", "3,3,2,2,3");
 var index=-1, score=0, c=1;
 
 function continueQuiz(){
-    c=0;
+    localStorage.removeItem('selectedOption');
     var name= localStorage.getItem("name");
     var indexCurrent = localStorage.getItem(name+"Attempted").split(",");
     index=indexCurrent[indexCurrent.length-1];
@@ -60,10 +60,9 @@ function setContent(){
     var arr=[localStorage.getItem("name"),localStorage.getItem("ques").split(",")[index],localStorage.getItem("options").split(";")[index].split(",")[0], localStorage.getItem("options").split(";")[index].split(",")[1], localStorage.getItem("options").split(";")[index].split(",")[2], localStorage.getItem("options").split(";")[index].split(",")[3]];
     document.getElementById("content").innerHTML="<span id='username'>Welcome "+arr[0]+"</span>";
     document.getElementById("content").innerHTML+="<p id='ques'>"+ arr[1]+"</p>";
-    document.getElementById("content").innerHTML+="<button id='btn1' onclick=storeAnswer('1')><a id='option1'>"+arr[2]+"</a></button><br>";
-    document.getElementById("content").innerHTML+="<button id='btn2' onclick=storeAnswer('2')><a id='option2'>"+arr[3]+"</a></button><br>";
-    document.getElementById("content").innerHTML+="<button id='btn3' onclick=storeAnswer('3')><a id='option3'>"+arr[4]+"</a></button><br>";
-    document.getElementById("content").innerHTML+="<button id='btn4' onclick=storeAnswer('4')><a id='option4'>"+arr[5]+"</a></button><br>";
+    for(var i=1; i<5; i++){
+        document.getElementById("content").innerHTML+="<button id='btn"+i+"' onclick=storeAnswer("+i+")><a id='option"+i+"'>"+arr[i+1]+"</a></button><br>";
+    }
      if(index<4){
             document.getElementById("content").innerHTML+="<button id='next' onclick=setContent()>Next</button>";
         }
