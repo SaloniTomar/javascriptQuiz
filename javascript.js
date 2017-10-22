@@ -4,13 +4,14 @@ localStorage.setItem("options", "javascript,scripting,script,js;In the body,Head
 
 localStorage.setItem("correct", "3,3,2,2,3");
 
-var index=-1, score=0;
+var index=-1, score=0, c=1;
 
 function continueQuiz(){
+    c=0;
     var name= localStorage.getItem("name");
     var indexCurrent = localStorage.getItem(name+"Attempted").split(",");
     index=indexCurrent[indexCurrent.length-1];
-    if(index > 4){
+    if(index >= 4){
         showResult();
     }
     var correctAnswers=localStorage.getItem(name+"Correct");
@@ -31,11 +32,9 @@ function submitUsername(){
         }
     else{
         if(name===localStorage.getItem("name")){
-            alert(name);
             continueQuiz();
         }
         else{
-            alert(name+"avn");
             localStorage.setItem("name", name);
             document.getElementById("userData").style.display="none";
             document.getElementById("content").style.display="block";
@@ -52,7 +51,7 @@ function storeAnswer(ans){
 }
 
 function setContent(){
-    if(index!=(-1)){
+    if(index!=(-1) && c){
         var answer=localStorage.getItem("selectedOption");
         checkAnswer(answer);
     }
@@ -106,4 +105,3 @@ function showResult(){
     document.getElementById("content").style.display="none";
     document.getElementById("result").innerHTML="<a style='font-size:50px'>"+name+", Your score is "+score+" out of 5</a>";
 }
-
