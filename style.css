@@ -1,16 +1,17 @@
 body{
-    background-color: aliceblue;
+    background-color: #F0F8FF;
 }
-
+/*The grid containing the entire content of the Quiz*/
 .grid{
     width: auto;
     height: auto;
     margin: 20px;
-    background-color: ghostwhite;
+    background-color: #F8F8FF;
     padding: 10px 50px 70px 50px;
     border-radius: 50px;
-    border: 2px solid black;
+    border: 2px solid #000000;
 }
+/*The user information displayed while giving the Quiz.*/
 #username{
     font-family: sans-serif;
     font-size: 20px;
@@ -18,47 +19,60 @@ body{
     right: 70px;
     top: 25px;
 }
+/*Quiz Heading*/
 h1{
     font-family: sans-serif;
-    background-color: gainsboro;
+    background-color: #DCDCDC;
     font-size: 60px;
     text-align: center;
-    color: steelblue;
-    padding: 2px 0px;
+    color: #4682B4;
+    padding: 2px 20px;
+    width: fit-content;
     border-radius:50px;
+    margin: 0 auto;
 }
-#ques, #userData{
+
+/*Subheadings*/
+.subHeading{
     font-family: sans-serif;
     font-size: 30px;
-    color: steelblue;
+    color: #4682B4;
 }
+
+/*Quiz application container*/
 #content{
     margin-top: 30px;
+    display: none;
 }
-.grid #submit1, #next,#submit2{
+
+/*Submit and Next buttons*/
+.navigationButtons{
     position: absolute;
-    right: 0px;
+    right: 50%;
     bottom: auto;
-    background-color: ivory;
+    background-color: #FFFFFF;
     width: auto;
     font-size: 20px;
-    color: steelblue;
+    color: #4682B4;
     border-radius: 50px;
     margin: 10px 40px 10px 0px;
     padding: 10px 10px 10px 10px;
 }
-#submit1:focus, #submit2:focus, #next:focus{
+
+.navigationButtons:focus{
     outline: 0;
 }
-#submit1:hover, #submit2:hover, #next:hover{
-    cursor: pointer;
-    
+
+.navigationButtons:hover{
+    cursor: pointer; 
 }
+
+/*Option buttons*/
 #btn1, #btn2, #btn3, #btn4{
-    background-color: ivory;
+    background-color: #FFFFFF;
     width: 250px;
     font-size: 20px;
-    color: steelblue;
+    color: #4682B4;
     border-radius: 50px;
     margin: 10px 40px 10px 0px;
     padding: 10px 10px;
@@ -66,11 +80,11 @@ h1{
 
 #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover{
     cursor: pointer;
-    background-color: slategrey;
+    background-color: #708090;
     color: white;
 }
 #btn1:focus, #btn2:focus, #btn3:focus, #btn4:focus{
-    background-color: slategray;
+    background-color: #708090;
     outline: 0;
-    color: white;
+    color: #FFFFFF;
 }
