@@ -5,21 +5,28 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+        
+<!--            Grid to contain the contents of the quiz    -->
         <div class="grid">
-        <h1>Quiz</h1>
-        <hr>
-        <div id="userData" style="display: block">
-            <p>Enter your name</p>
-            <form>
-                <input id="name" type="text" required/>
-            </form>
+            <h1>Quiz</h1>
+            <hr>
+<!--            Taking userdata from the user        -->
+            <div id="userData">
+                <p class="subHeading">Enter your name</p>
+                <form>
+                    <input id="name" type="text" />
+                </form>
+
+                <button class="navigationButtons" id="submit1" onclick=submitUsername()>Submit</button>
+            </div>
             
-            <button id="submit1" onclick=submitUsername() style="display: block">Submit</button>
+<!--            Container for the quiz application         -->
+            <div  id="content"></div>
+            
+<!--            Container for the result       -->
+            <div id="result"></div>
         </div>
-        <div  id="content" style="display: none"></div>
-        <div id="result"></div>
-        </div>
+        
   <script src="javascript.js"></script>
     </body>
 </html>
-
